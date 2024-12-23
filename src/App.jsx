@@ -11,7 +11,8 @@ function App() {
       <Header />
       <BannerSwiper />
       <TypeButtonScope />
-      <LiveSliderBar />
+      <LiveSliderBar displaySlides={3.5}/>
+      <LiveSliderBar displaySlides={5.85}/>
     </>
   )
 }

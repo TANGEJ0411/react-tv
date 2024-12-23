@@ -6,25 +6,20 @@ import clsx from "clsx";
 import Icon from "@mdi/react";
 import { mdiChevronLeft, mdiChevronRight } from "@mdi/js";
 
-export default function SnapSliderNav({children, totalSlides, displaySlides}) {
+export default function SnapSliderNav({children, displaySlides, setIsInvisible}) {
 
   const FirstInitFlag = useRef(true);
-  // const [showStartSpace, setShowStartSpace] = useState(false);
   const [isLoop, setIsLoop] = useState(false);
   const [loaded, setLoaded] = useState(false)
-  const [currentSlide, setCurrentSlide] = useState(0)
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
-    initial: 1,
+    initial: Math.floor(displaySlides / 2),
     mode: "free-snap",
     drag: false,
     slides: {
       origin: 'center',
-      perView: 3.5,
+      perView: displaySlides,
       spacing: 5,
-    },
-    animation: {
-      duration: 1000 // 動畫持續時間(毫秒)
     },
     created() {
       setLoaded(true)
@@ -52,27 +47,25 @@ export default function SnapSliderNav({children, totalSlides, displaySlides}) {
           {isLoop &&
           <SwitchButton 
             direction='left' 
-            onClick={(e) => e.stopPropagation() || instanceRef.current?.prev()}
-            // disabled={currentSlide === 0}
+            onClick={(e) => {
+              const currentSlide = instanceRef.current.track.details.abs;
+              e.stopPropagation() || instanceRef.current?.moveToIdx(currentSlide - 2);
+            }}
           />
           }
           <SwitchButton 
             direction='right' 
             onClick={(e) => {
               const currentSlide = instanceRef.current.track.details.abs;
-              const currentOptions = instanceRef.current.options;
-              // console.log(instanceRef.current.options);
               e.stopPropagation() || 
               instanceRef.current?.moveToIdx(currentSlide + 2); 
               // instanceRef.current?.next();
-              // if(FirstInitFlag.current) {
-              //   FirstInitFlag.current = false;
-              //   instanceRef.current?.update({...currentOptions, loop: true});
-              //   setIsLoop(true);
-              // }
+              if(FirstInitFlag.current) {
+                FirstInitFlag.current = false;
+                setIsInvisible(false);
+                setIsLoop(true);
+              }
             }}
-            disabled={currentSlide ===
-              instanceRef.current.track.details.slides.length - 1}
           />
         </>
       )}
@@ -84,6 +77,7 @@ SnapSliderNav.propTypes = {
     children: PropTypes.node.isRequired,
     totalSlides: PropTypes.number.isRequired,
     displaySlides: PropTypes.number.isRequired,
+    setIsInvisible: PropTypes.func.isRequired,
 };
 
 
@@ -110,5 +104,5 @@ const SwitchButton = ({ direction, onClick, disabled }) => {
 SwitchButton.propTypes = {
   direction: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
 }
