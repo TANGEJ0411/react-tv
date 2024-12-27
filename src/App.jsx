@@ -3,6 +3,7 @@ import Header from "./components/Header"
 import './style/index.css'
 import TypeButtonScope from "./views/homePage/TypeButtonScope"
 import LiveSliderBar from "./views/homePage/LiveSliderBar"
+import DramaSliderBar from "./views/homePage/DramaSliderBar"
 
 function App() {
 
@@ -11,8 +12,8 @@ function App() {
       <Header />
       <BannerSwiper />
       <TypeButtonScope />
-      <LiveSliderBar displaySlides={3.5}/>
-      <LiveSliderBar displaySlides={5.85}/>
+      <LiveSliderBar displaySlides={3.5} />
+      <DramaSliderBar displaySlides={5.8} />
     </>
   )
 }

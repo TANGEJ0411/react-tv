@@ -36,3 +36,7 @@ body::-webkit-scrollbar {
   border-top: 5px solid #3498db; /* 動畫部分顏色 */
   border-radius: 50%; /* 圓形 */
 }
+
+.keen-slider_visible {
+  overflow: visible !important;
+}

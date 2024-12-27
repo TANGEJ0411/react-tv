@@ -19,7 +19,7 @@ export default function SnapSliderNav({children, displaySlides, setIsInvisible})
     slides: {
       origin: 'center',
       perView: displaySlides,
-      spacing: 5,
+      spacing: 10,
     },
     created() {
       setLoaded(true)
@@ -36,9 +36,9 @@ export default function SnapSliderNav({children, displaySlides, setIsInvisible})
 );
 
   return (
-    <div className='navigation-wrapper w-full relative group'>
+    <div className='navigation-wrapper w-full group relative'>
       <div ref={sliderRef} className={clsx(
-          'keen-slider w-full'
+          'keen-slider w-full keen-slider_visible'
         )}>
         {children}
       </div>
@@ -85,7 +85,7 @@ const SwitchButton = ({ direction, onClick, disabled }) => {
   return (
     <button
       className={clsx(
-        'absolute top-1/2 transform -translate-y-1/2 bg-grey-600 invisible rounded-full',
+        'absolute top-1/2 transform -translate-y-1/2 bg-grey-600 invisible rounded-full z-21',
         direction === 'left' ? 'left-10' : 'right-10',
         disabled ? 'text-white-300' : 'text-white',
         'group-hover:visible'

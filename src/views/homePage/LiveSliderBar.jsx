@@ -2,6 +2,7 @@ import { useState } from "react";
 import SnapSliderNav from "../../components/SnapSliderNav";
 import clsx from "clsx";
 import PropTypes from "prop-types";
+import LiveSliderItem from "../../components/LiveSliderItem";
 
 export default function LiveSliderBar({displaySlides}) {
 
@@ -18,11 +19,15 @@ export default function LiveSliderBar({displaySlides}) {
                     <div className="bg-white mx-2 flex-auto">2</div>
                     <div className="bg-white mx-2 flex-auto">3</div> */}
                 </div>
-                <div className="flex keen-slider__slide h-32 w-2/4 bg-negative">2
+                <LiveSliderItem />
+                <LiveSliderItem />
+                <LiveSliderItem />
+                <div className="flex keen-slider__slide h-32 w-2/4 bg-negative relative">2
                     {/* <div className="bg-white mx-2 flex-auto">1</div>
                     <div className="bg-white mx-2 flex-auto">2</div>
                     <div className="bg-white mx-2 flex-auto">3</div> */}
                 </div>
+                <LiveSliderItem />
                 <div className="flex keen-slider__slide h-32 w-2/4 bg-disable">3
                     {/* <div className="bg-white mx-2 flex-auto">1</div>
                     <div className="bg-white mx-2 flex-auto">2</div>
