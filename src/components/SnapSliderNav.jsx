@@ -85,7 +85,7 @@ const SwitchButton = ({ direction, onClick, disabled }) => {
   return (
     <button
       className={clsx(
-        'absolute top-1/2 transform -translate-y-1/2 bg-grey-600 invisible rounded-full z-21',
+        'absolute top-1/2 transform -translate-y-1/2 bg-grey-600 invisible rounded-full z-30',
         direction === 'left' ? 'left-10' : 'right-10',
         disabled ? 'text-white-300' : 'text-white',
         'group-hover:visible'
