@@ -35,7 +35,7 @@ function LiveSliderItem() {
 
 
   return (
-    <div className="w-1/2 cursor-pointer keen-slider__slide keen-slider_visible relative hover:z-20">
+    <div className="w-1/2 cursor-pointer keen-slider__slide keen-slider_visible relative hover:z-10">
       <div className="relative flex h-full rounded-lg bg-[rgba(0,0,0,0.4)] hover:scale-[1.2] duration-300">
         <figure className="relative aspect-video flex-[0_0_64%] overflow-hidden rounded-l-lg bg-black">
             <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
