@@ -2,10 +2,11 @@ import { useEffect, useRef } from "react";
 import videojs from "video.js";
 import 'video.js/dist/video-js.css';
 import PropTypes from "prop-types";
+import clsx from "clsx";
 
 // http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
 
-function LiveSliderItem() {
+function LiveSliderItem({isInvisible}) {
 
     const playerRef = useRef(null);
 
@@ -35,7 +36,7 @@ function LiveSliderItem() {
 
 
   return (
-    <div className="w-1/2 cursor-pointer keen-slider__slide keen-slider_visible relative hover:z-10">
+    <div className={clsx("w-1/2 cursor-pointer keen-slider__slide keen-slider_visible relative hover:z-10", isInvisible ? "invisible" : "visible")}>
       <div className="relative flex h-full rounded-lg bg-[rgba(0,0,0,0.4)] hover:scale-[1.2] duration-300">
         <figure className="relative aspect-video flex-[0_0_64%] overflow-hidden rounded-l-lg bg-black">
             <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
@@ -50,7 +51,11 @@ function LiveSliderItem() {
   )
 }
 
-export default LiveSliderItem
+export default LiveSliderItem;
+
+LiveSliderItem.propTypes = {
+  isInvisible: PropTypes.bool.isRequired,
+}
 
 const VideoJS = (options, onReady) => {
     

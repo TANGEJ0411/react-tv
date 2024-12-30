@@ -1,6 +1,5 @@
 import { useState } from "react";
 import SnapSliderNav from "../../components/SnapSliderNav";
-import clsx from "clsx";
 import PropTypes from "prop-types";
 import LiveSliderItem from "../../components/LiveSliderItem";
 
@@ -14,45 +13,18 @@ export default function LiveSliderBar({displaySlides}) {
                 <h2 className="text-[20px] font-[700] text-white">Channel 24小時直播中</h2>
             </div>
             <SnapSliderNav setIsInvisible={setIsInvisible} displaySlides={displaySlides}>
-                <div className="flex items-stretch keen-slider__slide h-32 w-2/4 bg-primary">1
-                    {/* <div className="bg-white mx-2 flex-auto">1</div>
-                    <div className="bg-white mx-2 flex-auto">2</div>
-                    <div className="bg-white mx-2 flex-auto">3</div> */}
-                </div>
                 <LiveSliderItem />
                 <LiveSliderItem />
                 <LiveSliderItem />
-                <div className="flex keen-slider__slide h-32 w-2/4 bg-negative relative">2
-                    {/* <div className="bg-white mx-2 flex-auto">1</div>
-                    <div className="bg-white mx-2 flex-auto">2</div>
-                    <div className="bg-white mx-2 flex-auto">3</div> */}
-                </div>
                 <LiveSliderItem />
-                <div className="flex keen-slider__slide h-32 w-2/4 bg-disable">3
-                    {/* <div className="bg-white mx-2 flex-auto">1</div>
-                    <div className="bg-white mx-2 flex-auto">2</div>
-                    <div className="bg-white mx-2 flex-auto">3</div> */}
-                </div>
-                <div className="flex keen-slider__slide h-32 w-2/4 bg-blue">4
-                    {/* <div className="bg-white mx-2 flex-auto">1</div>
-                    <div className="bg-white mx-2 flex-auto">2</div>
-                    <div className="bg-white mx-2 flex-auto">3</div> */}
-                </div>
-                <div className="flex keen-slider__slide h-32 w-2/4 bg-yellow">5
-                    {/* <div className="bg-white mx-2 flex-auto">1</div>
-                    <div className="bg-white mx-2 flex-auto">2</div>
-                    <div className="bg-white mx-2 flex-auto">3</div> */}
-                </div>
-                <div className="flex keen-slider__slide h-32 w-2/4 bg-violet">6
-                    {/* <div className="bg-white mx-2 flex-auto">1</div>
-                    <div className="bg-white mx-2 flex-auto">2</div>
-                    <div className="bg-white mx-2 flex-auto">3</div> */}
-                </div>
-                <div className={clsx("flex keen-slider__slide h-32 w-2/4 bg-coral", isInvisible ? "invisible" : "visible")}>7
-                    {/* <div className="bg-white mx-2 flex-auto">1</div>
-                    <div className="bg-white mx-2 flex-auto">2</div>
-                    <div className="bg-white mx-2 flex-auto">3</div> */}
-                </div>
+                <LiveSliderItem />
+                <LiveSliderItem />
+                <LiveSliderItem />
+                <LiveSliderItem />
+                <LiveSliderItem />
+                <LiveSliderItem />
+                <LiveSliderItem />
+                <LiveSliderItem isInvisible={isInvisible}/>
             </SnapSliderNav>
         </>
     )
